@@ -12,4 +12,10 @@ public class AccountTest {
     public void depositAnAmountToIncreaseTheBalance() {
         assertThat("your first test").isBlank();
     }
+
+    @Test
+    public void newAccountShouldHaveZeroBalance(){
+        Account account = new Account();
+        assertThat(account.getBalance()).isEqualTo(0);
+    }
 }
