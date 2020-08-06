@@ -20,7 +20,8 @@ public class Account {
         balance += amount;
     }
 
-    public void withdraw(int amount) {
+    public void withdraw(int amount) throws Exception {
+
         balance -= amount;
     }
 }

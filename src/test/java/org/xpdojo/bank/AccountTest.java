@@ -4,6 +4,8 @@ package org.xpdojo.bank;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.assertj.core.api.Fail.fail;
 import static org.xpdojo.bank.Account.emptyAccount;
 
 public class AccountTest {
@@ -31,9 +33,23 @@ public class AccountTest {
 
     @Test
     public void multipleWithdrawAnAmmountShouldDecreaseBalanceBySum(){
-        account.withdraw(10);
-        account.withdraw(10);
+        try {
+            account.withdraw(10);
+            account.withdraw(10);
+        } catch (Exception e){
+
+        }
         assertThat(account.getBalance()).isEqualTo(-20);
+    }
+
+    @Test
+    public void whithdrawalFromEmtyAccountShouldNotBeAllowed(){
+        try{
+            account.withdraw(1);
+            fail("Expected exception");
+        } catch (Exception e){
+
+        }
     }
 
 
