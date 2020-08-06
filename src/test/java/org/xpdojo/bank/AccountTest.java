@@ -33,13 +33,14 @@ public class AccountTest {
 
     @Test
     public void multipleWithdrawAnAmmountShouldDecreaseBalanceBySum(){
+        account.deposit(50);
         try {
             account.withdraw(10);
             account.withdraw(10);
         } catch (Exception e){
 
         }
-        assertThat(account.getBalance()).isEqualTo(-20);
+        assertThat(account.getBalance()).isEqualTo(30);
     }
 
     @Test
