@@ -25,4 +25,14 @@ public class AccountTest {
         account.deposit(10);
         assertThat(account.getBalance()).isEqualTo(10);
     }
+
+    @Test
+    public void multipleDepositAnAmountShouldIncreaseBalanceBySum(){
+        Account account = new Account();
+        account.deposit(10);
+        account.deposit(10);
+        account.deposit(10);
+        assertThat(account.getBalance()).isEqualTo(30);
+    }
+
 }
